@@ -1,0 +1,69 @@
+:root {
+  --font-family: -apple-system, "SF Pro Display", system-ui, "Segoe UI", Roboto, sans-serif;
+
+  /* Jellyfin brand palette */
+  --jf-purple:      #AA5CC3;
+  --jf-blue:        #00A4DC;
+  --jf-blue-dim:    rgba(0, 164, 220, 0.18);
+  --jf-blue-glow:   rgba(0, 164, 220, 0.40);
+  --jf-purple-glow: rgba(170, 92, 195, 0.40);
+
+  /* Backgrounds — deep near-black with a cool-purple undertone */
+  --bg-base:       #0d0d12;
+  --bg-gradient-1: #13131f;
+  --bg-gradient-2: #09090d;
+
+  /* Surfaces */
+  --surface:   #1c1c2e;
+  --surface-2: #26263a;
+
+  /* Text */
+  --text-primary:   #ffffff;
+  --text-secondary: #a8a8c0;
+  --text-tertiary:  #5e5e7a;
+
+  /* Status / semantic */
+  --accent-blue:   var(--jf-blue);
+  --accent-green:  #4ade80;
+  --accent-red:    #f87171;
+  --accent-yellow: #fbbf24;
+
+  /* TV title-safe margins (~5% of 1920×1080) */
+  --safe-h: 80px;
+  --safe-v: 48px;
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-base);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  font-size: 20px; /* TV base — scales all em-based children */
+}
+
+button {
+  font: inherit;
+}
+
+#root {
+  position: relative;
+  background: radial-gradient(
+    ellipse 120% 80% at 35% 15%,
+    var(--bg-gradient-1),
+    var(--bg-gradient-2) 65%
+  );
+}

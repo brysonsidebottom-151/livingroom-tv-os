@@ -1,0 +1,141 @@
+.app-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  /* Keep in sync with APP_ICON_HEIGHT + label space + padding-bottom */
+  height: 360px;
+  padding-bottom: var(--safe-v);
+  overflow: hidden;
+  box-sizing: border-box;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+  transform: translateY(100%);
+  animation: appBarEnter 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
+}
+
+@keyframes appBarEnter {
+  to { transform: translateY(0); }
+}
+
+.app-bar__track {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  height: 100%;
+  /* 190px = APP_ICON_WIDTH / 2 — keep in sync with AppBar.tsx APP_ICON_WIDTH=380 */
+  padding: 0 calc(50% - 190px);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.app-icon {
+  position: relative;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  /* Keep in sync with AppBar.tsx APP_ICON_WIDTH / APP_ICON_HEIGHT */
+  width: 380px;
+  height: 214px;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.07);
+  padding: 0;
+  cursor: pointer;
+  background: var(--surface);
+  opacity: var(--tile-rest-opacity, 0.72);
+  filter: grayscale(var(--tile-rest-grayscale, 0.35)) brightness(var(--tile-rest-brightness, 0.85));
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 0 20px 48px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s, opacity 0.3s, filter 0.3s;
+}
+
+.app-icon__clip {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.app-icon__clip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 90% at 28% -10%, rgba(255,255,255,0.18), rgba(255,255,255,0) 55%),
+    linear-gradient(to bottom, rgba(255,255,255,0) 55%, rgba(0,0,0,0.2) 100%);
+  pointer-events: none;
+}
+
+.app-icon--tier-0 { animation: tileFadeIn 0.5s ease-out 0.7s  backwards; }
+.app-icon--tier-1 { animation: tileFadeIn 0.5s ease-out 0.85s backwards; }
+.app-icon--tier-2 { animation: tileFadeIn 0.5s ease-out 1.0s  backwards; }
+
+@keyframes tileFadeIn {
+  from {
+    opacity: 0;
+    filter: grayscale(1) brightness(0.6);
+  }
+  to {
+    opacity: var(--tile-rest-opacity, 0.72);
+    filter: grayscale(var(--tile-rest-grayscale, 0.35)) brightness(var(--tile-rest-brightness, 0.85));
+  }
+}
+
+.app-icon__art {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.app-icon__art svg,
+.app-icon__art img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.app-icon__badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(251, 191, 36, 0.20);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(251, 191, 36, 0.55);
+  color: var(--accent-yellow);
+  z-index: 1;
+}
+
+.app-icon__label {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 14px;
+  white-space: nowrap;
+  font-family: var(--font-family);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  letter-spacing: 0.3px;
+}
+
+.app-icon--focused {
+  opacity: 1;
+  filter: grayscale(0) brightness(1);
+  transform: scale(1.18);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.4),
+    0 28px 56px rgba(0, 0, 0, 0.65),
+    0 0 0 3px var(--jf-blue),
+    0 0 32px var(--jf-blue-glow);
+  z-index: 2;
+}
+
+.app-icon--push-left  { transform: translateX(-22px); }
+.app-icon--push-right { transform: translateX(22px); }

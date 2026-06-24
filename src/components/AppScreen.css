@@ -1,0 +1,53 @@
+.app-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  text-align: center;
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  padding: 0 var(--safe-h);
+}
+
+.app-screen__message h2 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.app-screen__message p {
+  color: var(--text-secondary);
+  font-size: 24px;
+  max-width: 640px;
+  line-height: 1.5;
+}
+
+.app-screen__message code {
+  background: var(--surface);
+  padding: 3px 10px;
+  border-radius: 8px;
+  font-size: 20px;
+}
+
+.app-screen__back {
+  background: var(--surface);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-size: 24px;
+  font-weight: 600;
+  padding: 16px 48px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+.app-screen__back:focus {
+  outline: none;
+  border-color: var(--jf-blue);
+  box-shadow: 0 0 0 4px var(--jf-blue-glow);
+  transform: scale(1.04);
+}

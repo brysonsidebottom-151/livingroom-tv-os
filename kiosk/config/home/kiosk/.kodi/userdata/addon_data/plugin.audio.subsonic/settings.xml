@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings version="2">
+    <setting id="subsonic_url">http://192.168.254.190</setting>
+    <setting id="port">4533</setting>
+    <setting id="username">bryson</setting>
+    <setting id="password">NavPlanoHouse7q</setting>
+    <setting id="albums_per_page">50</setting>
+    <setting id="tracks_per_page">100</setting>
+    <setting id="apiversion">1.16.0</setting>
+    <setting id="legacyauth">false</setting>
+</settings>

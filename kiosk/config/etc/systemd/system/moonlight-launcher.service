@@ -1,0 +1,16 @@
+[Unit]
+Description=Local launcher for Moonlight game streaming (Steam/Xbox kiosk tiles)
+After=multi-user.target
+
+[Service]
+Type=simple
+User=kiosk
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/kiosk/.Xauthority
+Environment=QT_QPA_PLATFORM=xcb
+ExecStart=/usr/bin/python3 /opt/moonlight-launcher/launcher.py
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

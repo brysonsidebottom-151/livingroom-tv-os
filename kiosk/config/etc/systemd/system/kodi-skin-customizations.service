@@ -1,0 +1,13 @@
+[Unit]
+Description=Re-apply Kodi Estuary skin customizations (survives package upgrades)
+Documentation=file:/opt/kodi-customizations/apply.py
+After=local-fs.target
+Before=getty@tty1.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /opt/kodi-customizations/apply.py
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

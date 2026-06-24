@@ -1,0 +1,15 @@
+[Unit]
+Description=Apple IR receiver remap (ring nav, double-click volume)
+After=multi-user.target
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/kiosk/.Xauthority
+ExecStart=/usr/bin/python3 /opt/ir-remap/ir-remap.py
+Restart=on-failure
+RestartSec=2
+User=root
+
+[Install]
+WantedBy=multi-user.target
