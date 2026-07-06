@@ -5,7 +5,6 @@ import {
   SteamIcon,
   YouTubeIcon,
 } from "./components/icons";
-import { YOUTUBE_TV_URL } from "./config";
 
 interface AppBase {
   id: string;
@@ -25,7 +24,7 @@ export const APPS: AppDef[] = [
     icon: <YouTubeIcon />,
     color: "#CF2226",
     kind: "external",
-    url: YOUTUBE_TV_URL,
+    url: "/youtube.html",
   },
   {
     id: "movies",
