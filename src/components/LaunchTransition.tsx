@@ -33,8 +33,7 @@ export function LaunchTransition({ app, rect, onMidpoint, onDone }: LaunchTransi
     const raf = requestAnimationFrame(() => setPhase("backdropIn"));
     const t0 = setTimeout(() => setPhase("grown"), BACKDROP_MS);
     const t1 = setTimeout(() => setPhase("iconHidden"), BACKDROP_MS + GROW_MS + HOLD_MS);
-    const resolvesInPlace =
-      app.kind === "server" || app.kind === "launcher" || app.kind === "search";
+    const resolvesInPlace = app.kind === "launcher";
 
     const t2 = setTimeout(() => {
       firedMidpoint.current = true;
